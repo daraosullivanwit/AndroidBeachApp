@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Beach</string>
+    <string name="button_addBeach">Add Beach</string>
+    <string name="hint_beachTitle">Beach Title</string>
+    <string name="hint_beachDescription">Description </string>
+    <string name="menu_addBeach">Add</string>
+    <string name="menu_cancelBeach">Cancel</string>
+</resources>
