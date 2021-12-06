@@ -35,6 +35,10 @@ class BeachMemStore : BeachStore {
         }
     }
 
+    override fun delete(beach: BeachModel) {
+        beaches.remove(beach)
+    }
+
     private fun logAll() {
         beaches.forEach { i("$it") }
     }

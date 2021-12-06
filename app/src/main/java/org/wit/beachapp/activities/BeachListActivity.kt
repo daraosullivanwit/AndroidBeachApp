@@ -15,11 +15,12 @@ import org.wit.beachapp.databinding.ActivityBeachListBinding
 import org.wit.beachapp.main.MainApp
 import org.wit.beachapp.models.BeachModel
 
-class BeachListActivity : AppCompatActivity(), BeachListener {
+class BeachListActivity : AppCompatActivity(), BeachListener/*, MultiplePermissionsListener*/  {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityBeachListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +36,7 @@ class BeachListActivity : AppCompatActivity(), BeachListener {
         loadBeaches()
 
         registerRefreshCallback()
+        registerMapCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,6 +49,10 @@ class BeachListActivity : AppCompatActivity(), BeachListener {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, BeachActivity::class.java)
                 refreshIntentLauncher.launch(launcherIntent)
+            }
+            R.id.item_map -> {
+                val launcherIntent = Intent(this, BeachMapsActivity::class.java)
+                mapIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -62,6 +68,12 @@ class BeachListActivity : AppCompatActivity(), BeachListener {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             { loadBeaches() }
+    }
+
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            {  }
     }
 
     private fun loadBeaches() {

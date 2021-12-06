@@ -42,7 +42,22 @@ class BeachJSONStore(private val context: Context) : BeachStore {
 
 
     override fun update(beach: BeachModel) {
-        // todo
+        val beachesList = findAll() as ArrayList<BeachModel>
+        var foundBeach: BeachModel? = beachesList.find { p -> p.id == beach.id }
+        if (foundBeach != null) {
+            foundBeach.title = beach.title
+            foundBeach.description = beach.description
+            foundBeach.image = beach.image
+            foundBeach.lat = beach.lat
+            foundBeach.lng = beach.lng
+            foundBeach.zoom = beach.zoom
+        }
+        serialize()
+    }
+
+    override fun delete(beach: BeachModel) {
+        beaches.remove(beach)
+        serialize()
     }
 
     private fun serialize() {
