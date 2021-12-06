@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wit.beachapp.R
@@ -17,6 +19,7 @@ class BeachListActivity : AppCompatActivity(), BeachListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityBeachListBinding
+    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,8 @@ class BeachListActivity : AppCompatActivity(), BeachListener {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = BeachAdapter(app.beaches.findAll(),this)
+
+        registerRefreshCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -40,15 +45,21 @@ class BeachListActivity : AppCompatActivity(), BeachListener {
         when (item.itemId) {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, BeachActivity::class.java)
-                startActivityForResult(launcherIntent,0)
+                refreshIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onPlacemarkClick(beach: BeachModel) {
+    override fun onBeachClick(beach: BeachModel) {
         val launcherIntent = Intent(this, BeachActivity::class.java)
         launcherIntent.putExtra("beach_edit", beach)
-        startActivityForResult(launcherIntent,0)
+        refreshIntentLauncher.launch(launcherIntent)
+    }
+
+    private fun registerRefreshCallback() {
+        refreshIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { binding.recyclerView.adapter?.notifyDataSetChanged() }
     }
 }

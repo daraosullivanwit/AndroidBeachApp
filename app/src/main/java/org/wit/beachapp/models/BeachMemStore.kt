@@ -27,6 +27,10 @@ class BeachMemStore : BeachStore {
         if (foundBeach != null) {
             foundBeach.title = beach.title
             foundBeach.description = beach.description
+            foundBeach.image = beach.image
+            foundBeach.lat = beach.lat
+            foundBeach.lng = beach.lng
+            foundBeach.zoom = beach.zoom
             logAll()
         }
     }

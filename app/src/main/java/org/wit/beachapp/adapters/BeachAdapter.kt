@@ -3,11 +3,12 @@ package org.wit.beachapp.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import org.wit.beachapp.databinding.CardBeachBinding
 import org.wit.beachapp.models.BeachModel
 
 interface BeachListener {
-    fun onPlacemarkClick(beach: BeachModel)
+    fun onBeachClick(beach: BeachModel)
 }
 
 class BeachAdapter constructor(private var beaches: List<BeachModel>,
@@ -22,8 +23,8 @@ class BeachAdapter constructor(private var beaches: List<BeachModel>,
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val placemark = beaches[holder.adapterPosition]
-        holder.bind(placemark, listener)
+        val beach = beaches[holder.adapterPosition]
+        holder.bind(beach, listener)
     }
 
     override fun getItemCount(): Int = beaches.size
@@ -34,7 +35,8 @@ class BeachAdapter constructor(private var beaches: List<BeachModel>,
         fun bind(beach: BeachModel, listener: BeachListener) {
             binding.beachTitle.text = beach.title
             binding.description.text = beach.description
-            binding.root.setOnClickListener { listener.onPlacemarkClick(beach) }
+            Picasso.get().load(beach.image).resize(200,200).into(binding.imageIcon)
+            binding.root.setOnClickListener { listener.onBeachClick(beach) }
         }
     }
 }
