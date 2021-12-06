@@ -31,7 +31,8 @@ class BeachListActivity : AppCompatActivity(), BeachListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = BeachAdapter(app.beaches.findAll(),this)
+        //binding.recyclerView.adapter = BeachAdapter(app.beaches.findAll(),this)
+        loadBeaches()
 
         registerRefreshCallback()
     }
@@ -60,6 +61,15 @@ class BeachListActivity : AppCompatActivity(), BeachListener {
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { binding.recyclerView.adapter?.notifyDataSetChanged() }
+            { loadBeaches() }
+    }
+
+    private fun loadBeaches() {
+        showBeaches(app.beaches.findAll())
+    }
+
+    fun showBeaches (beaches: List<BeachModel>) {
+        binding.recyclerView.adapter = BeachAdapter(beaches, this)
+        binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 }
