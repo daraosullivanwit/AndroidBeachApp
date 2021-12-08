@@ -9,6 +9,7 @@ import kotlinx.parcelize.Parcelize
 data class BeachModel(var id: Long = 0,
                       var title: String = "",
                       var description: String = "",
+                      var size: String = "",
                       var image: Uri = Uri.EMPTY,
                       var lat : Double = 0.0,
                       var lng: Double = 0.0,

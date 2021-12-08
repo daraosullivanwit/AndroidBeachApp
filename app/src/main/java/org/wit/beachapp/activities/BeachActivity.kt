@@ -64,6 +64,7 @@ class BeachActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener() {
             beach.title = binding.beachTitle.text.toString()
             beach.description = binding.description.text.toString()
+            beach.size = binding.size.text.toString()
             //Data validation using Snackbar for message
             if (beach.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_beach_title, Snackbar.LENGTH_LONG).show()
