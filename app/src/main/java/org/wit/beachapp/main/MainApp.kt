@@ -1,7 +1,6 @@
 package org.wit.beachapp.main
 
 import android.app.Application
-import org.wit.beachapp.models.BeachMemStore
 import org.wit.beachapp.models.BeachStore
 import org.wit.beachapp.models.BeachJSONStore
 import timber.log.Timber
@@ -14,6 +13,7 @@ class MainApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        //Timber tree
         Timber.plant(Timber.DebugTree())
         beaches = BeachJSONStore(applicationContext)
         i("Beach started")

@@ -9,10 +9,13 @@ import timber.log.Timber
 import java.lang.reflect.Type
 import java.util.*
 
+//Describe JSON file
 const val JSON_FILE = "beaches.json"
+//Utility to serialize java class
 val gsonBuilder: Gson = GsonBuilder().setPrettyPrinting()
     .registerTypeAdapter(Uri::class.java, UriParser())
     .create()
+//Object to help in converting a JSON string to a java collection
 val listType: Type = object : TypeToken<ArrayList<BeachModel>>() {}.type
 
 fun generateRandomId(): Long {
@@ -20,7 +23,6 @@ fun generateRandomId(): Long {
 }
 
 class BeachJSONStore(private val context: Context) : BeachStore {
-
     var beaches = mutableListOf<BeachModel>()
 
     init {
@@ -39,7 +41,6 @@ class BeachJSONStore(private val context: Context) : BeachStore {
         beaches.add(beach)
         serialize()
     }
-
 
     override fun update(beach: BeachModel) {
         val beachesList = findAll() as ArrayList<BeachModel>
@@ -70,11 +71,13 @@ class BeachJSONStore(private val context: Context) : BeachStore {
         beaches = gsonBuilder.fromJson(jsonString, listType)
     }
 
+    //Log all beaches.
     private fun logAll() {
         beaches.forEach { Timber.i("$it") }
     }
 }
 
+//Parses Uri image property
 class UriParser : JsonDeserializer<Uri>,JsonSerializer<Uri> {
     override fun deserialize(
         json: JsonElement?,

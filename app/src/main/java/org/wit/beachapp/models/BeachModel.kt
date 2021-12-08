@@ -4,6 +4,7 @@ import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
+//Parcelize capability.
 @Parcelize
 data class BeachModel(var id: Long = 0,
                       var title: String = "",

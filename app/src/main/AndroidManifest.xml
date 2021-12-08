@@ -20,14 +20,13 @@
 
         <activity
             android:name=".activities.MapActivity"
-            android:exported="false"
-            android:label="@string/title_activity_map" />
+            android:label="@string/title_activity_map"
+            android:exported="true"/>
         <activity
             android:name=".activities.BeachListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

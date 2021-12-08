@@ -15,20 +15,16 @@ import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.beachapp.R
 import org.wit.beachapp.models.Location
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback,
-    GoogleMap.OnMarkerDragListener,
-    GoogleMap.OnMarkerClickListener {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
 
     private lateinit var map: GoogleMap
     var location = Location()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_map)
         location = intent.extras?.getParcelable<Location>("location")!!
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
