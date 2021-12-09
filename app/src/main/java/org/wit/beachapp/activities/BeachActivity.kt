@@ -47,9 +47,10 @@ class BeachActivity : AppCompatActivity() {
             edit = true
             //Retrieves selected beach.
             beach = intent.extras?.getParcelable("beach_edit")!!
+            //Binding correct text to UI
             binding.beachTitle.setText(beach.title)
             binding.description.setText(beach.description)
-            //Bind button to 'Save Beach'
+            binding.size.setText(beach.size)
             binding.btnAdd.setText(R.string.save_beach)
             //Display image
             Picasso.get()
