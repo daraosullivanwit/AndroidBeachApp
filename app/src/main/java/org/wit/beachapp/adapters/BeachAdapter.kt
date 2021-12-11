@@ -33,6 +33,9 @@ class BeachAdapter constructor(private var beaches: List<BeachModel>, private va
             binding.description.text = beach.description
             binding.size.text = beach.size
             binding.walk.text = beach.walk
+            binding.visited.text = beach.visited
+            binding.dogs.text = beach.dogs
+            binding.fishing.text = beach.fishing
             Picasso.get().load(beach.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onBeachClick(beach) }
         }

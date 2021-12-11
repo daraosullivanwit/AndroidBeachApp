@@ -35,6 +35,10 @@ class BeachActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     var edit = false
     var walk = arrayOf<String?>("Has walking area", "No walking area")
+    var visited = arrayOf<String?>("Visited", "To Visit")
+    var dogs = arrayOf<String?>("Dogs allowed", "Dogs banned")
+    var fishing = arrayOf<String?>("Fishing Beach", "No Fishing")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,12 +51,27 @@ class BeachActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         //Event handling - Add walk. Take the instance of Spinner and apply OnItemSelectedListener on it which tells which item of spinner is clicked
         val spin = findViewById<Spinner>(R.id.walkspinner)
         spin.onItemSelectedListener = this
+        val spin2 = findViewById<Spinner>(R.id.visitedspinner)
+        spin2.onItemSelectedListener = this
+        val spin3 = findViewById<Spinner>(R.id.dogsspinner)
+        spin3.onItemSelectedListener = this
+        val spin4 = findViewById<Spinner>(R.id.fishingspinner)
+        spin4.onItemSelectedListener = this
         // Create the instance of ArrayAdapter having the list
         val ad: ArrayAdapter<*> = ArrayAdapter<Any?>(this, android.R.layout.simple_spinner_item, walk)
+        val ad2: ArrayAdapter<*> = ArrayAdapter<Any?>(this, android.R.layout.simple_spinner_item, visited)
+        val ad3: ArrayAdapter<*> = ArrayAdapter<Any?>(this, android.R.layout.simple_spinner_item, dogs)
+        val ad4: ArrayAdapter<*> = ArrayAdapter<Any?>(this, android.R.layout.simple_spinner_item, fishing)
         // set simple layout resource file for each item of spinner
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        ad2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        ad3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        ad4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         // Set the ArrayAdapter (ad) data on the Spinner which binds data to spinner
         spin.adapter = ad
+        spin2.adapter = ad2
+        spin3.adapter = ad3
+        spin4.adapter = ad4
         //Initialise MainApp.
         app = application as MainApp
 
@@ -66,6 +85,9 @@ class BeachActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             binding.description.setText(beach.description)
             binding.size.setText(beach.size)
             binding.walk.text = beach.walk
+            binding.visited.text = beach.visited
+            binding.dogs.text = beach.dogs
+            binding.fishing.text = beach.fishing
             binding.btnAdd.setText(R.string.save_beach)
             //Display image
             Picasso.get()
@@ -82,6 +104,9 @@ class BeachActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             beach.description = binding.description.text.toString()
             beach.size = binding.size.text.toString()
             beach.walk = beach.walk
+            beach.visited = beach.visited
+            beach.dogs = beach.dogs
+            beach.fishing = beach.fishing
             //Data validation using Snackbar for message
             if (beach.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_beach_title, Snackbar.LENGTH_LONG).show()
@@ -187,6 +212,9 @@ class BeachActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
         beach.walk = walk[position].toString()
+        beach.visited = visited[position].toString()
+        beach.dogs = dogs[position].toString()
+        beach.fishing = fishing[position].toString()
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}

@@ -5,6 +5,9 @@
     <string name="hint_beachDescription">Description </string>
     <string name="hint_beachSize">Size</string>
     <string name="hint_beachWalk">Walk</string>
+    <string name="hint_beachVisited">Visited</string>
+    <string name="hint_beachDogs">Dogs</string>
+    <string name="hint_beachFishing">Fishing</string>
     <string name="menu_addBeach">Add</string>
     <string name="menu_cancelBeach">Cancel</string>
     <string name="enter_beach_title"> Please enter a Beach Title </string>
@@ -15,10 +18,13 @@
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">Map</string>
     <string name="menu_deleteBeach">Delete</string>
-    <string name="title_activity_beach_maps">Map of All Beachess </string>
+    <string name="title_activity_beach_maps">Map of All Beaches </string>
     <string name="beach_image_placeholder">Beach Image</string>
     <string name="beach_title_placeholder">Beach Title</string>
     <string name="beach_description_placeholder">Beach Description</string>
     <string name="beach_size_placeholder">Beach Size</string>
     <string name="beach_walk_placeholder">Beach Walk</string>
+    <string name="beach_visited_placeholder">Beach Visited</string>
+    <string name="beach_dogs_placeholder">Beach Dogs</string>
+    <string name="beach_fishing_placeholder">Beach Fishing</string>
 </resources>
