@@ -12,7 +12,11 @@
         android:id="@+id/SplashScreenImage"
         android:layout_width="300dp"
         android:layout_height="200dp"
+<<<<<<< HEAD
         android:src="@drawable/icon_foreground"
+=======
+        android:src="@drawable/ic_launcher_background"
+>>>>>>> 4d18cdd096e7f1090301f0536af4e72413ced121
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
