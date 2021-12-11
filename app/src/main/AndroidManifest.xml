@@ -19,19 +19,24 @@
             android:value="AIzaSyClJCoV2427rlEhOL5kLFIEu4cAPXtgWPI" />
 
         <activity
-            android:name=".activities.MapActivity"
-            android:label="@string/title_activity_map"
-            android:exported="true"/>
-        <activity
-            android:name=".activities.BeachListActivity"
+            android:name=".activities.SplashScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.BeachActivity"></activity>
-        <activity android:name=".activities.BeachMapsActivity"/>
+        <activity
+            android:name=".activities.MapActivity"
+            android:exported="true"
+            android:label="@string/title_activity_map" />
+        <activity
+            android:name=".activities.BeachListActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".activities.BeachActivity" />
+        <activity android:name=".activities.BeachMapsActivity" />
     </application>
 
 </manifest>
