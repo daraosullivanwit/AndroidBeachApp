@@ -49,6 +49,7 @@ class BeachJSONStore(private val context: Context) : BeachStore {
             foundBeach.title = beach.title
             foundBeach.description = beach.description
             foundBeach.size = beach.size
+            foundBeach.walk = beach.walk
             foundBeach.image = beach.image
             foundBeach.lat = beach.lat
             foundBeach.lng = beach.lng

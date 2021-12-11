@@ -4,6 +4,7 @@
     <string name="hint_beachTitle">Beach Title</string>
     <string name="hint_beachDescription">Description </string>
     <string name="hint_beachSize">Size</string>
+    <string name="hint_beachWalk">Walk</string>
     <string name="menu_addBeach">Add</string>
     <string name="menu_cancelBeach">Cancel</string>
     <string name="enter_beach_title"> Please enter a Beach Title </string>
@@ -19,4 +20,5 @@
     <string name="beach_title_placeholder">Beach Title</string>
     <string name="beach_description_placeholder">Beach Description</string>
     <string name="beach_size_placeholder">Beach Size</string>
+    <string name="beach_walk_placeholder">Beach Walk</string>
 </resources>
