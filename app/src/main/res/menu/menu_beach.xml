@@ -8,5 +8,6 @@
         android:id="@+id/item_delete"/>
     <item android:title="@string/menu_cancelBeach"
         app:showAsAction="always"
+        android:fontFamily="monospace"
         android:id="@+id/item_cancel"/>
 </menu>
