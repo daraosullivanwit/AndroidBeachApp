@@ -28,4 +28,5 @@
     <string name="beach_dogs_placeholder">Beach Dogs</string>
     <string name="beach_fishing_placeholder">Beach Fishing</string>
     <string name="menu_visited">Visited Beaches</string>
+    <string name="menu_tovisit">Beaches To Visit</string>
 </resources>
