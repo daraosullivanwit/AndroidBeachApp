@@ -11,4 +11,14 @@
         app:showAsAction="always"
         android:icon="@android:drawable/ic_menu_add"
         android:id="@+id/item_add"/>
+    <item
+        android:title="@string/menu_visited"
+        app:showAsAction="always"
+        android:icon="@drawable/visited_foreground"
+        android:id="@+id/item_visited"/>
+    <item
+        android:title="@string/menu_tovisit"
+        app:showAsAction="always"
+        android:icon="@drawable/tovisit_foreground"
+        android:id="@+id/item_tovisit"/>
 </menu>
