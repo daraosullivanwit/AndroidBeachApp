@@ -1,12 +1,15 @@
 package org.wit.beachapp.activities
 
 import android.os.Bundle
+import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import org.wit.beachapp.R
 import org.wit.beachapp.databinding.ActivityBeachMapsBinding
 import org.wit.beachapp.databinding.ContentBeachMapsBinding
 import org.wit.beachapp.main.MainApp

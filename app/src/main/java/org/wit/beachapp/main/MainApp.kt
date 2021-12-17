@@ -1,6 +1,8 @@
 package org.wit.beachapp.main
 
 import android.app.Application
+import android.widget.Switch
+import org.wit.beachapp.R
 import org.wit.beachapp.models.BeachStore
 import org.wit.beachapp.models.BeachJSONStore
 import timber.log.Timber

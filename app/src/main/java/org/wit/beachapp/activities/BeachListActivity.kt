@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Switch
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wit.beachapp.R
 import org.wit.beachapp.adapters.BeachAdapter
@@ -36,7 +38,17 @@ class BeachListActivity : AppCompatActivity(), BeachListener/*, MultiplePermissi
         val layoutManager = LinearLayoutManager(this)
         //Binding to view
         binding.recyclerView.layoutManager = layoutManager
-        //binding.recyclerView.adapter = BeachAdapter(app.beaches.findAll(),this)
+        //Night mode switch handling
+        val btn = findViewById<Switch>(R.id.switch1)
+        btn.setOnCheckedChangeListener { _, isChecked ->
+            if (btn.isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                btn.text = "Disable dark mode"
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                btn.text = "Enable dark mode"
+            }
+        }
         loadBeaches()
         registerRefreshCallback()
         registerMapCallback()
