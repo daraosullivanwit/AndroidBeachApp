@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.wit.beachapp">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.wit.beachapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -19,18 +18,15 @@
         <activity
             android:name=".activities.VisitedActivity"
             android:exported="true" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyClJCoV2427rlEhOL5kLFIEu4cAPXtgWPI" />
-
         <activity
             android:name=".activities.SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
