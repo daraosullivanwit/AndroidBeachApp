@@ -8,11 +8,14 @@
     tools:context="org.wit.beachapp.activities.BeachListActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:fitsSystemWindows="true"
         app:elevation="0dip"
+        app:layout_anchor="@+id/appBarLayout4"
+        app:layout_anchorGravity="center"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <androidx.appcompat.widget.Toolbar
@@ -21,6 +24,16 @@
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             app:titleTextColor="@color/colorPrimary" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:fontFamily="monospace"
+            android:text="Enable dark mode"
+            android:textColor="@color/white"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

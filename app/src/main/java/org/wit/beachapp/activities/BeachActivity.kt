@@ -15,6 +15,7 @@ import android.view.View
 import android.widget.*
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.MutableLiveData
 import com.squareup.picasso.Picasso
 import org.wit.beachapp.databinding.ActivityBeachBinding
