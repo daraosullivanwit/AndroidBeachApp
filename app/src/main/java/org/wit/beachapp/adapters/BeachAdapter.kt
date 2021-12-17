@@ -1,9 +1,14 @@
 package org.wit.beachapp.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.activity.result.ActivityResultLauncher
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import org.wit.beachapp.R
+import org.wit.beachapp.activities.BeachView
 import org.wit.beachapp.databinding.CardBeachBinding
 import org.wit.beachapp.models.BeachModel
 
@@ -38,6 +43,6 @@ class BeachAdapter constructor(private var beaches: List<BeachModel>, private va
             binding.fishing.text = beach.fishing
             Picasso.get().load(beach.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onBeachClick(beach) }
+            }
         }
     }
-}
